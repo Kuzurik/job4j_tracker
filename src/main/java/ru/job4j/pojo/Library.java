@@ -8,20 +8,19 @@ public class Library {
         Book threePigs = new Book("Three pigs", 90);
         Book cleanCode = new Book("Clean code", 700);
         Book[] books = new Book[] {ball, redCap, threePigs, cleanCode};
-        for (int i = 0; i < books.length; i++) {
-            System.out.println(books[i].getName() + " - " + books[i].getPages());
+        for (Book book : books) {
+            System.out.println(book.getName() + " - " + book.getPages());
         }
         Book temp = books[0];
         books[0] = books[3];
         books[3] = temp;
-        for (int i = 0; i < books.length; i++) {
-            System.out.println(books[i].getName() + " - " + books[i].getPages());
+        for (Book book : books) {
+            System.out.println(book.getName() + " - " + book.getPages());
         }
 
-        for (int i = 0; i < books.length; i++) {
-            if (books[i].getName().equals("Clean code")) {
-                System.out.println(books[i].getName() + " - " + books[i].getPages());
-                break;
+        for (Book book : books) {
+            if ("Clean code".equals(book.getName())) {
+                System.out.println(book.getName() + " - " + book.getPages());
             }
         }
 
