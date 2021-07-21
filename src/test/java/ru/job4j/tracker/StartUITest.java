@@ -12,10 +12,11 @@ public class StartUITest {
 
     @Test
     public void whenAddItem() {
+        Output output = new ConsoleOutput();
         String[] answers = {"0", "Fix PC", "1"};
         Tracker tracker = new Tracker();
-        UserAction[] actions = {new CreateAction(), new ExitAction()};
-        new StartUI().init(new StubInput(answers), tracker, actions);
+        UserAction[] actions = {new CreateAction(output), new ExitAction()};
+        new StartUI(output).init(new StubInput(answers), tracker, actions);
         Item created = tracker.findAll()[0];
         Item expected = new Item("Fix PC");
         assertThat(created.getName(), is(expected.getName()));
@@ -23,6 +24,7 @@ public class StartUITest {
 
     @Test
     public void whenReplaceItem() {
+        Output output = new ConsoleOutput();
         Tracker tracker = new Tracker();
         Item item = new Item("new item");
         tracker.add(item);
@@ -30,21 +32,22 @@ public class StartUITest {
                 String.valueOf(item.getId()), /* id сохраненной заявки в объект tracker. */
                 "replaced item", "1"
         };
-        UserAction[] actions = {new EditItemAction(), new ExitAction()};
-        new StartUI().init(new StubInput(answers), tracker, actions);
+        UserAction[] actions = {new EditItemAction(output), new ExitAction()};
+        new StartUI(output).init(new StubInput(answers), tracker, actions);
         Item replaced = tracker.findById(item.getId());
         assertThat(replaced.getName(), is("replaced item"));
     }
 
     @Test
     public void whenDeleteItem() {
+        Output output = new ConsoleOutput();
         Tracker tracker = new Tracker();
         Item item = new Item("new item");
         tracker.add(item);
         String[] answers = {"0",
                 String.valueOf(item.getId()), "1"};
-        UserAction[] actions = {new DeleteItemsAction(), new ExitAction()};
-        new StartUI().init(new StubInput(answers), tracker, actions);
+        UserAction[] actions = {new DeleteItemsAction(output), new ExitAction()};
+        new StartUI(output).init(new StubInput(answers), tracker, actions);
         Item deleted = tracker.findById(item.getId());
         assertThat(deleted, is(nullValue()));
     }
