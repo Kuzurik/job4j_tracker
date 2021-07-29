@@ -13,7 +13,6 @@ public class Battery {
 
     }
 
-
     public static void main(String[] args) {
         Battery battery = new Battery(5);
         Battery battery1 = new Battery(7);

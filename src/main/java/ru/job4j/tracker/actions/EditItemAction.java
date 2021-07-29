@@ -5,7 +5,7 @@ import ru.job4j.tracker.Item;
 import ru.job4j.tracker.Output;
 import ru.job4j.tracker.Tracker;
 
-public class EditItemAction implements UserAction{
+public class EditItemAction implements UserAction {
 
     private final Output out;
 
