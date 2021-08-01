@@ -12,9 +12,9 @@ public class Departments {
             for (String el : depsArr) {
                 if (start.equals(el)) {
                     tmp.add(start);
-                    continue;
+                } else {
+                    tmp.add(start + "/" + el);
                 }
-                tmp.add(start + "/" + el);
             }
         }
         return new ArrayList<>(tmp);
