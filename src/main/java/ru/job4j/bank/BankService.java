@@ -1,11 +1,8 @@
 package ru.job4j.bank;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-    /**
+/**
     * Class describes work bank system and transfer money from account
     * to account.
     * @author Kuzura Alexandr
@@ -36,10 +33,8 @@ public class BankService {
      */
 
     public void addAccount(String passport, Account account) {
-        User user = findByPassport(passport);
-        if (user != null) {
-            this.users.get(user).add(account);
-        }
+        Optional<User> user = findByPassport(passport);
+        user.ifPresent(value -> this.users.get(value).add(account));
     }
 
     /**
@@ -48,15 +43,10 @@ public class BankService {
      * @return returns the user that was found.
      */
 
-    public User findByPassport(String passport) {
-        User result = null;
-        for (User userByPassport : users.keySet()) {
-            if (userByPassport.getPassport().equals(passport)) {
-                result = userByPassport;
-                break;
-            }
-        }
-        return result;
+    public Optional<User> findByPassport(String passport) {
+       return users.keySet().stream()
+                .filter(e -> e.getPassport().equals(passport))
+                .findFirst();
     }
 
     /**
@@ -67,10 +57,10 @@ public class BankService {
      */
 
     public Account findByRequisite(String passport, String requisite) {
-        User user = findByPassport(passport);
+        Optional<User> user = findByPassport(passport);
         Account rsl = null;
-        if (user != null) {
-            for (Account account : users.get(user)) {
+        if (user.isPresent()) {
+            for (Account account : users.get(user.get())) {
                 if (account.getRequisite().equals(requisite)) {
                     rsl = account;
                     break;
