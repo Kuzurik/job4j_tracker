@@ -1,4 +1,4 @@
-package ru.job4j.Stream;
+package ru.job4j.stream;
 
 public class Car {
 
@@ -12,15 +12,15 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "name='" + name + '\'' +
-                ", engineVolume=" + engineVolume +
-                ", cylinders=" + cylinders +
-                ", bodyType='" + bodyType + '\'' +
-                ", color='" + color + '\'' +
-                ", fuelType='" + fuelType + '\'' +
-                ", tireSize=" + tireSize +
-                '}';
+        return "Car{"
+                + "name='" + name + '\''
+                + ", engineVolume=" + engineVolume
+                + ", cylinders=" + cylinders
+                + ", bodyType='" + bodyType + '\''
+                + ", color='" + color + '\''
+                + ", fuelType='" + fuelType + '\''
+                + ", tireSize=" + tireSize
+                + '}';
     }
 
     static class Builder {

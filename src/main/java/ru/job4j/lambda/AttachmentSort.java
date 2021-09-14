@@ -31,7 +31,6 @@ public class AttachmentSort {
         };
         list.add(100500);
 
-
         Comparator<Attachment> comp = new Comparator<Attachment>() {
             @Override
             public int compare(Attachment left, Attachment right) {

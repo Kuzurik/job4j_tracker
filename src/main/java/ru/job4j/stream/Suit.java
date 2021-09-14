@@ -1,4 +1,4 @@
-package ru.job4j.Stream;
+package ru.job4j.stream;
 
 public enum Suit {
     Diamonds, Hearts, Spades, Clubs

@@ -1,4 +1,4 @@
-package ru.job4j.Stream;
+package ru.job4j.stream;
 
 public class Card {
 
@@ -12,9 +12,9 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Card{" +
-                "suit=" + suit +
-                ", value=" + value +
-                '}';
+        return "Card{"
+                + "suit=" + suit
+                + ", value=" + value
+                + '}';
     }
 }
