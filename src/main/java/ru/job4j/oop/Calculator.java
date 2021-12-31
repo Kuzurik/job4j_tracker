@@ -8,12 +8,12 @@ public class Calculator {
         return x + y;
     }
 
-    public int multiply(int a) {
-        return x * a;
-    }
-
     public static int minus(int y) {
         return y - x;
+    }
+
+    public int multiply(int a) {
+        return x * a;
     }
 
     public int divide(int y) {
