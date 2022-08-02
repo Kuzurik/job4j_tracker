@@ -30,8 +30,7 @@ public class AnalyzeByMap {
         List<Label> rsl = new ArrayList<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.getSubjects()) {
-                temp.computeIfPresent(subject.getName(), (a, b) -> b = subject.getScore()
-                        + temp.get(subject.getName()));
+                temp.computeIfPresent(subject.getName(), (a, b) -> b + subject.getScore());
                 temp.putIfAbsent(subject.getName(), subject.getScore());
             }
          }
@@ -57,8 +56,7 @@ public class AnalyzeByMap {
         List<Label> rsl = new ArrayList<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.getSubjects()) {
-                temp.computeIfPresent(subject.getName(), (a, b) -> b = subject.getScore()
-                        + temp.get(subject.getName()));
+                temp.computeIfPresent(subject.getName(), (a, b) -> b + subject.getScore());
                 temp.putIfAbsent(subject.getName(), subject.getScore());
             }
         }
