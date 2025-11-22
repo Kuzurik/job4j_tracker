@@ -4,10 +4,10 @@ public class Broken {
 
     public static final String NEW_VALUE = "";
     private int sizeOfEmpty = 10;
-    String name;
-    public String surName;
+    private String name;
+    private String surName;
 
-    Broken() {
+    public Broken() {
 
     }
 
